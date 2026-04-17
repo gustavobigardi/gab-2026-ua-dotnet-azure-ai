@@ -1,0 +1,52 @@
+{
+  "entries": [
+    {
+      "id": "kb-01",
+      "topic": "Redefinição de senha",
+      "keywords": ["senha", "redefinir", "esqueci", "reset", "password", "portal"],
+      "content": "Para redefinir sua senha do portal acadêmico da UniAnchieta, acesse portal.unianchieta.edu.br, clique em 'Esqueci minha senha', informe seu e-mail institucional e siga o link enviado. O link expira em 30 minutos."
+    },
+    {
+      "id": "kb-02",
+      "topic": "Acesso ao portal acadêmico",
+      "keywords": ["portal", "acessar", "login", "entrar", "acadêmico"],
+      "content": "O acesso ao portal acadêmico é feito com o RA (Registro Acadêmico) como usuário e a senha definida no primeiro acesso. Caso seja seu primeiro acesso, use 'Primeiro Acesso' no portal."
+    },
+    {
+      "id": "kb-03",
+      "topic": "Emissão de declaração de matrícula",
+      "keywords": ["declaração", "matrícula", "documento", "comprovante"],
+      "content": "Declarações de matrícula são emitidas pelo portal acadêmico em Documentos > Declarações. O documento assinado digitalmente sai em PDF em até 5 minutos. Não é necessário ir à secretaria."
+    },
+    {
+      "id": "kb-04",
+      "topic": "E-mail institucional",
+      "keywords": ["email", "e-mail", "institucional", "outlook", "microsoft"],
+      "content": "O e-mail institucional (@aluno.unianchieta.edu.br) é acessado pelo Outlook Web em outlook.office.com. Use o mesmo e-mail e senha do portal. Em problemas de autenticação, faça logout em todos os dispositivos."
+    },
+    {
+      "id": "kb-05",
+      "topic": "Ambiente Virtual de Aprendizagem (AVA)",
+      "keywords": ["ava", "moodle", "ambiente virtual", "aula online", "curso"],
+      "content": "O AVA da UniAnchieta fica em ava.unianchieta.edu.br. O login é o mesmo do portal. Caso uma disciplina não apareça, aguarde até 24h após a matrícula ser efetivada; se persistir, abra um chamado."
+    },
+    {
+      "id": "kb-06",
+      "topic": "Horário do atendimento presencial",
+      "keywords": ["horário", "atendimento", "secretaria", "presencial"],
+      "content": "A secretaria acadêmica atende de segunda a sexta, das 9h às 21h, e aos sábados das 9h às 13h. O suporte de TI atende de segunda a sexta, das 8h às 22h."
+    },
+    {
+      "id": "kb-07",
+      "topic": "Abertura de chamado de TI",
+      "keywords": ["chamado", "ti", "suporte", "ticket", "helpdesk"],
+      "content": "Chamados de TI são registrados no portal de atendimento (suporte.unianchieta.edu.br) ou por este assistente. Informe sempre: categoria, descrição do problema e urgência."
+    },
+    {
+      "id": "kb-08",
+      "topic": "Dúvidas administrativas e financeiras",
+      "keywords": ["financeiro", "boleto", "mensalidade", "pagamento", "2ª via"],
+      "content": "Segunda via de boletos e questões financeiras são resolvidas pelo portal em Financeiro > Boletos. Para parcelamentos ou acordos, fale com a Central Financeira pelo telefone (11) 4000-0000."
+    }
+  ]
+}

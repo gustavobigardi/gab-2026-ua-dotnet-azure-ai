@@ -1,0 +1,98 @@
+@page
+@model IndexModel
+@{
+    ViewData["Title"] = "UniAnchieta Service Desk Agent";
+}
+
+<div class="chat-container">
+    <header class="chat-header">
+        <h1>UniAnchieta Service Desk Agent</h1>
+        <p class="subtitle">Assistente virtual de triagem e atendimento interno &mdash; demo Global Azure 2026</p>
+    </header>
+
+    <section id="chat-log" class="chat-log" aria-live="polite">
+        <div class="bubble bubble-agent">
+            Olá! Sou o assistente da UniAnchieta. Como posso ajudar? Posso consultar a base de conhecimento ou abrir um chamado para você.
+        </div>
+    </section>
+
+    <form id="chat-form" class="chat-form" method="post">
+        <textarea id="message" name="message" rows="2"
+                  placeholder="Digite sua pergunta e pressione Enter..."
+                  required></textarea>
+        <button type="submit" id="send-btn">Enviar</button>
+    </form>
+
+    <p class="hint">Experimente: <em>"Esqueci minha senha do portal"</em> ou <em>"Não consigo acessar o sistema mesmo depois de trocar a senha"</em>.</p>
+</div>
+
+@section Scripts {
+    <script>
+        const form = document.getElementById('chat-form');
+        const input = document.getElementById('message');
+        const log = document.getElementById('chat-log');
+        const btn = document.getElementById('send-btn');
+
+        function appendBubble(text, who, toolsInvoked) {
+            const div = document.createElement('div');
+            div.className = 'bubble bubble-' + who;
+            div.textContent = text;
+            if (toolsInvoked && toolsInvoked.length > 0) {
+                const meta = document.createElement('small');
+                meta.className = 'tools-meta';
+                meta.textContent = 'tools: ' + toolsInvoked.join(', ');
+                div.appendChild(document.createElement('br'));
+                div.appendChild(meta);
+            }
+            log.appendChild(div);
+            log.scrollTop = log.scrollHeight;
+        }
+
+        input.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                form.requestSubmit();
+            }
+        });
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const msg = input.value.trim();
+            if (!msg) return;
+
+            appendBubble(msg, 'user');
+            input.value = '';
+            btn.disabled = true;
+
+            const thinking = document.createElement('div');
+            thinking.className = 'bubble bubble-agent bubble-thinking';
+            thinking.textContent = 'Consultando agente...';
+            log.appendChild(thinking);
+
+            try {
+                const resp = await fetch('?handler=Chat', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'RequestVerificationToken':
+                            document.querySelector('input[name="__RequestVerificationToken"]').value
+                    },
+                    body: JSON.stringify({ message: msg })
+                });
+                const data = await resp.json();
+                thinking.remove();
+                if (data.hasError) {
+                    appendBubble('Erro: ' + data.error, 'agent');
+                } else {
+                    appendBubble(data.reply, 'agent', data.toolsInvoked);
+                }
+            } catch (err) {
+                thinking.remove();
+                appendBubble('Erro ao chamar o agente: ' + err, 'agent');
+            } finally {
+                btn.disabled = false;
+                input.focus();
+            }
+        });
+    </script>
+}
