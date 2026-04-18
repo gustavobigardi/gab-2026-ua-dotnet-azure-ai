@@ -88,7 +88,7 @@ var deployment = configuration["AzureOpenAI:DeploymentName"]
 
 ### Etapa 2.3 — Escrever as instruções do agente
 
-Substitua o `AgentInstructions` pela versão orientada:
+Substitua o `AgentInstructions` pela versão orientada: (localize o TODO da Etapa 5.3)
 
 ```text
 Você é o assistente de triagem e atendimento interno da UniAnchieta.
@@ -105,7 +105,7 @@ Responda em português, em no máximo 4 parágrafos curtos.
 
 ### Etapa 2.4 — Chamar o Azure OpenAI
 
-Ainda no construtor, depois das credenciais:
+Ainda no construtor, depois das credenciais: (localize o TODO da Etapa 5.4)
 
 ```csharp
 var azureClient = new AzureOpenAIClient(
@@ -130,7 +130,7 @@ _agent = azureClient
         ]);
 ```
 
-E, no `SendAsync`, troque o stub por:
+E, logo abaixo no método `SendAsync`, troque o trecho comentado por: (localize o TODO da Etapa 5.4b)
 
 ```csharp
 try
@@ -149,7 +149,7 @@ catch (Exception ex)
 }
 ```
 
-Declare o campo `private readonly AIAgent _agent;`.
+Declare o campo `private readonly AIAgent _agent;`. (localize o TODO da Etapa 5.4c)
 
 **Checkpoint 3** ✔️ Uma pergunta simples já devolve resposta do modelo (ainda sem usar tools).
 
@@ -157,7 +157,7 @@ Declare o campo `private readonly AIAgent _agent;`.
 
 ### Etapa 2.5 — Knowledge Base Tool
 
-Implemente `SearchKnowledgeBase`:
+Implemente `SearchKnowledgeBase`: (localize o TODO da Etapa 5.5)
 
 ```csharp
 var entry = _kb.FindBest(query);
@@ -174,7 +174,7 @@ return $"Tópico: {entry.Topic}\nConteúdo: {entry.Content}";
 
 ### Etapa 2.6 — Ticket Tool
 
-Implemente `OpenSupportTicket`:
+Implemente `OpenSupportTicket`: (localize o TODO da Etapa 5.6)
 
 ```csharp
 var t = _tickets.Open(requester, category, description, priority);

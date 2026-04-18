@@ -35,7 +35,7 @@ public class AgentService
     private readonly List<string> _lastToolsInvoked = new();
     private readonly Lock _toolsLock = new();
 
-    // TODO (Etapa 5.4): guardar aqui o AIAgent depois de cria-lo.
+    // TODO (Etapa 5.4c): guardar aqui o AIAgent depois de cria-lo.
     // private readonly AIAgent _agent;
 
     public AgentService(
@@ -77,7 +77,7 @@ public class AgentService
     {
         lock (_toolsLock) _lastToolsInvoked.Clear();
 
-        // TODO (Etapa 5.4): chamar o _agent.RunAsync(userMessage) e retornar o texto.
+        // TODO (Etapa 5.4b): chamar o _agent.RunAsync(userMessage) e retornar o texto.
         // try
         // {
         //     var result = await _agent.RunAsync(userMessage, cancellationToken: ct);
